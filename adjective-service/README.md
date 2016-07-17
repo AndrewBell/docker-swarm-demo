@@ -4,4 +4,4 @@ Build docker image:
 
 Run docker image:
 
-`docker run --name adjective -p 8080:8080 recursivechaos/adjective`
+`docker run --name adjective -p 8010:8010 recursivechaos/adjective`

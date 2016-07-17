@@ -21,7 +21,7 @@ public class NounServiceApplication {
 		SpringApplication.run(NounServiceApplication.class, args);
 	}
 
-    @RequestMapping(path = "/nouns/random")
+    @RequestMapping(path = "/random")
     public ResponseEntity<NounResponse> getRandomNoun() {
         String noun = getRandomNounString();
         return new ResponseEntity<>(new NounResponse(noun), HttpStatus.OK);

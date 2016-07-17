@@ -21,7 +21,7 @@ public class AdjectiveServiceApplication {
         SpringApplication.run(AdjectiveServiceApplication.class, args);
     }
 
-    @RequestMapping(path = "/adjectives/random")
+    @RequestMapping(path = "/random")
     public ResponseEntity<AdjectiveResponse> getRandomAdjective() {
         String adjective = getRandomAdjectiveString();
         return new ResponseEntity<>(new AdjectiveResponse(adjective), HttpStatus.OK);

@@ -1,12 +1,17 @@
 version: '2'
 services:
+  gateway:
+    build: ./api-gateway
+    image: recursivechaos/gateway
+    ports:
+      - "8000:8000"
   adjective:
     build: ./adjective-service
     image: recursivechaos/adjective
     ports:
-      - "8010:8080"
+      - "8010:8010"
   noun:
     build: ./noun-service
     image: recursivechaos/noun
     ports:
-      - "8020:8080"
+      - "8020:8020"
