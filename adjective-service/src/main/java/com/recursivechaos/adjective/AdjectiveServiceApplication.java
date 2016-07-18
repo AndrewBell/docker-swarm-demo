@@ -1,5 +1,6 @@
 package com.recursivechaos.adjective;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
@@ -21,10 +22,13 @@ public class AdjectiveServiceApplication {
         SpringApplication.run(AdjectiveServiceApplication.class, args);
     }
 
+    @Value("${properties.location:NOT_LOADED}")
+    private String location;
+
     @RequestMapping(path = "/random")
     public ResponseEntity<AdjectiveResponse> getRandomAdjective() {
         String adjective = getRandomAdjectiveString();
-        return new ResponseEntity<>(new AdjectiveResponse(adjective), HttpStatus.OK);
+        return new ResponseEntity<>(new AdjectiveResponse(adjective, location), HttpStatus.OK);
     }
 
     private String getRandomAdjectiveString() {
@@ -39,12 +43,19 @@ public class AdjectiveServiceApplication {
 
         private String hostname;
 
-        AdjectiveResponse(String adjective) {
+        private String location;
+
+        AdjectiveResponse(String adjective, String location) {
             this.adjective = adjective;
+            this.location = location;
         }
 
         public String getAdjective() {
             return adjective;
+        }
+
+        public String getLocation() {
+            return location;
         }
 
         public String getHostname() {

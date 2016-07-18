@@ -1,0 +1,6 @@
+zuul:
+  routes:
+    adjective:
+      url: http://adjective:8010
+    noun:
+      url: http://noun:8020

@@ -1,0 +1,8 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: noun
+  cloud:
+    config:
+      uri: http://config:8888

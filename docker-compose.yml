@@ -5,6 +5,8 @@ services:
     image: recursivechaos/gateway
     ports:
       - "8000:8000"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
   adjective:
     build: ./adjective-service
     image: recursivechaos/adjective

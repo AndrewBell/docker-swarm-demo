@@ -14,7 +14,6 @@ RUN apk add --update wget && \
 ADD src/ src/
 ADD pom.xml pom.xml
 RUN mvn package
-ADD src/main/resources /target	
 
-EXPOSE 8000
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "target/api-gateway-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8888
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "target/config-server-0.0.1-SNAPSHOT.jar"]
