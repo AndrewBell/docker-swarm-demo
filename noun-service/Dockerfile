@@ -16,4 +16,4 @@ ADD pom.xml pom.xml
 RUN mvn package
 
 EXPOSE 8020
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "target/noun-service-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "target/noun-service.jar"]
